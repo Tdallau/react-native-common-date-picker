@@ -16,7 +16,7 @@ const ToolBar = ({
   cancelDisabled,
   confirmDisabled,
 }) => (
-  <View style={{width: '100%', paddingHorizontal: 16}}>
+  <View style={{width: '100%'}}>
     {titleText ? (
       <Text style={[toolBarStyles.title, titleStyle]}>{titleText}</Text>
     ) : null}

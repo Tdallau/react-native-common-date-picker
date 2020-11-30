@@ -15,6 +15,7 @@ export const toolBarStyles = StyleSheet.create({
     },
     title: {
         fontSize: 17,
+        paddingHorizontal: 16
     },
     cancelText: {
         paddingVertical: 5,
