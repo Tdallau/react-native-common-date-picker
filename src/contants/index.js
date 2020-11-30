@@ -2,6 +2,7 @@ import {Dimensions} from 'react-native';
 import {getWeekDay, getDaysInMonth, getToday} from '../utils/dateFormat';
 import moment from 'moment';
 import momentNL from 'moment/src/locale/nl';
+import momentEN from 'moment/src/locale/en-gb';
 
 export const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 export const DEFAULT_MIN_DATE = '2000-1-1';
@@ -242,7 +243,7 @@ export function getDatePickerData(type, years, months, days) {
 }
 
 /** Only for Date Picker */
-export function getDatePickerInitialData(initialProps) {
+export function getDatePickerInitialData(initialProps, language) {
 
     const {
         type,
@@ -251,6 +252,11 @@ export function getDatePickerInitialData(initialProps) {
         maxDate,
         monthDisplayMode,
     } = initialProps;
+
+    moment.updateLocale(
+        language,
+        language.toLowerCase() !== 'nl' ? momentEN : momentNL
+      );
 
     const _verifyDate = date => {
         let aDate = date;

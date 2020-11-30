@@ -10,7 +10,7 @@ class DatePicker extends Component {
 
     constructor(props) {
         super(props);
-        this.state = Constants.getDatePickerInitialData(props);
+        this.state = Constants.getDatePickerInitialData(props, this.props.language);
     }
 
     _onValueChange = (key, selectedIndex) => {
