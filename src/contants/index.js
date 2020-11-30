@@ -1,5 +1,7 @@
 import {Dimensions} from 'react-native';
 import {getWeekDay, getDaysInMonth, getToday} from '../utils/dateFormat';
+import moment from 'moment';
+import momentNL from 'moment/src/locale/nl';
 
 export const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 export const DEFAULT_MIN_DATE = '2000-1-1';
@@ -190,9 +192,14 @@ export const MONTH_DISPLAY_MODE = {
 };
 
 /** Only for Date Picker */
-export function selectDatePickerData(index, data) {
-    console.log(data);
-    console.log(index);
+export function selectDatePickerData(index, data, forMonth = false) {
+    if(forMonth) {
+        moment.updateLocale(momentNL);
+        const months = moment.months();
+        const monthsNum = index >= 0 && data.length > index ? data[index].data : [];
+        console.log(months);
+        console.log(monthsNum);
+    }
     return index >= 0 && data.length > index ? data[index].data : [];
 }
 
@@ -299,7 +306,7 @@ export function getDatePickerInitialData(initialProps) {
     const defaultYearIndex = legalIndex(yearIndex, dates);
 
     // Months
-    const months = selectDatePickerData(defaultYearIndex, dates);
+    const months = selectDatePickerData(defaultYearIndex, dates, true);
     const monthIndex = months.findIndex(item => item.date === getDatePickerMonth(monthDisplayMode, +_defaultDates[1]));
     const defaultMonthIndex = legalIndex(monthIndex, months);
 
