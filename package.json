@@ -31,7 +31,7 @@
     "url": "https://github.com/lchenfox/react-native-common-date-picker/issues"
   },
   "homepage": "https://github.com/lchenfox/react-native-common-date-picker#readme",
-  "dependencies": {
+  "peerDependencies": {
     "moment": "^2.29.1"
   }
 }

@@ -194,11 +194,10 @@ export const MONTH_DISPLAY_MODE = {
 /** Only for Date Picker */
 export function selectDatePickerData(index, data, forMonth = false) {
     if(forMonth) {
-        moment.updateLocale(momentNL);
+        // moment.updateLocale(momentNL);
         const months = moment.months();
         const monthsNum = index >= 0 && data.length > index ? data[index].data : [];
-        console.log(months);
-        console.log(monthsNum);
+        return monthsNum.map(x => ({...x, date: months[x.date - 1]}))
     }
     return index >= 0 && data.length > index ? data[index].data : [];
 }
