@@ -191,6 +191,8 @@ export const MONTH_DISPLAY_MODE = {
 
 /** Only for Date Picker */
 export function selectDatePickerData(index, data) {
+    console.log(data);
+    console.log(index);
     return index >= 0 && data.length > index ? data[index].data : [];
 }
 
