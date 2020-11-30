@@ -21,7 +21,7 @@ class DatePicker extends Component {
                 const yearIndex = _getSelectedIndex(years);
                 this.setState({
                     selectedYear: years[yearIndex].date,
-                    months: Constants.selectDatePickerData(yearIndex, years),
+                    months: Constants.selectDatePickerData(yearIndex, years, true),
                 });
                 break;
             case Constants.DATE_KEY_TYPE.MONTH:
